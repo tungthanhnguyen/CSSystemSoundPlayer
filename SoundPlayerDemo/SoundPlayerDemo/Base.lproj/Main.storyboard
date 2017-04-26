@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SoundPlayerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlE-NC-XXE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="8XB-Xe-gjn"/>
+                                    <constraint firstAttribute="height" constant="30" id="kDj-RN-C7g"/>
+                                </constraints>
+                                <state key="normal" title="Play System Sound"/>
+                                <connections>
+                                    <action selector="playSystemSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YZa-0P-5Ve"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf1-po-zde">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="63H-JV-v7V"/>
+                                    <constraint firstAttribute="height" constant="30" id="m9i-08-LUk"/>
+                                </constraints>
+                                <state key="normal" title="Play Alert Sound"/>
+                                <connections>
+                                    <action selector="playAlertSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dg5-wN-Clu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByG-pr-M7e">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="8ei-K8-Ng5"/>
+                                    <constraint firstAttribute="height" constant="30" id="NnE-V3-qty"/>
+                                </constraints>
+                                <state key="normal" title="Play Vibration"/>
+                                <connections>
+                                    <action selector="playVibration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vUg-hC-Hgi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ir-uP-eJv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SoD-Na-6Lk"/>
+                                    <constraint firstAttribute="width" constant="115" id="Xwo-U4-K06"/>
+                                </constraints>
+                                <state key="normal" title="Play Long Sound"/>
+                                <connections>
+                                    <action selector="playLongSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jeL-jG-Ylx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oM-e9-6UG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wje-Mf-M8e"/>
+                                    <constraint firstAttribute="width" constant="109" id="yzq-xf-Era"/>
+                                </constraints>
+                                <state key="normal" title="Stop All Sounds"/>
+                                <connections>
+                                    <action selector="stopAllSounds:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IG0-X5-eOk"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DH-nJ-8yV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="3z1-ms-mUs"/>
+                                    <constraint firstAttribute="width" constant="49" id="Lee-zg-O7O"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="toogleSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pc9-vW-cMe"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9DH-nJ-8yV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Hc-rg-euw"/>
+                            <constraint firstItem="dlE-NC-XXE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ae-Da-XLI"/>
+                            <constraint firstItem="Rf1-po-zde" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9VR-Xz-OXO"/>
+                            <constraint firstItem="4oM-e9-6UG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GGA-kZ-HIv"/>
+                            <constraint firstItem="ByG-pr-M7e" firstAttribute="top" secondItem="Rf1-po-zde" secondAttribute="bottom" constant="5" id="MB5-pD-6WN"/>
+                            <constraint firstItem="Rf1-po-zde" firstAttribute="top" secondItem="dlE-NC-XXE" secondAttribute="bottom" constant="5" id="S0a-eb-1EU"/>
+                            <constraint firstItem="4oM-e9-6UG" firstAttribute="top" secondItem="6Ir-uP-eJv" secondAttribute="bottom" constant="5" id="SWU-uk-ALI"/>
+                            <constraint firstItem="dlE-NC-XXE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="87" id="Y8O-zo-6z3"/>
+                            <constraint firstItem="ByG-pr-M7e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b6Q-Es-oY8"/>
+                            <constraint firstItem="6Ir-uP-eJv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hGb-wH-6AI"/>
+                            <constraint firstItem="6Ir-uP-eJv" firstAttribute="top" secondItem="ByG-pr-M7e" secondAttribute="bottom" constant="5" id="vXZ-2e-2IY"/>
+                            <constraint firstItem="9DH-nJ-8yV" firstAttribute="top" secondItem="4oM-e9-6UG" secondAttribute="bottom" constant="5" id="zky-TF-Tfz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="soundSwitch" destination="9DH-nJ-8yV" id="KFa-7P-AIY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
