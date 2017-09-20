@@ -632,7 +632,7 @@ open class CSSystemSoundPlayer: NSObject
 	//////////////////////////////////////////////////////////////////////////////
 	// MARK: - Notifications
 	
-	internal func didReceiveMemoryWarningNotification(_ notification: NSNotification)
+	@objc internal func didReceiveMemoryWarningNotification(_ notification: NSNotification)
 	{
 		unloadSoundIDs()
 	}
