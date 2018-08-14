@@ -125,7 +125,7 @@ open class CSSystemSoundPlayer: NSObject
 	 *
 	 * @warning Completion blocks are only called for sounds played with the shared player.
 	 */
-	open static let sharedPlayer = CSSystemSoundPlayer()
+	public static let sharedPlayer = CSSystemSoundPlayer()
 
 	override public init()
 	{
@@ -151,7 +151,7 @@ open class CSSystemSoundPlayer: NSObject
 		self.completionBlocks = NSMutableDictionary.init()
 
 #if os(iOS)
-		NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMemoryWarningNotification(_:)), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMemoryWarningNotification(_:)), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
 #endif
 	}
 	
@@ -172,7 +172,7 @@ open class CSSystemSoundPlayer: NSObject
 	//////////////////////////////////////////////////////////////////////////////
 	// MARK: - Playing sounds
 
-	private func playSoundWith(pathToFile filePath: String, isAlert: Bool, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	private func playSoundWith(pathToFile filePath: String, isAlert: Bool, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		if (!self.isOn || filePath.isEmpty) { return }
 
@@ -184,7 +184,7 @@ open class CSSystemSoundPlayer: NSObject
 		playSoundWith(file: filePath, isAlert: isAlert, completionBlock: completion)
 	}
 	
-	private func playSoundWith(fileName filename: String, extension ext: String, isAlert: Bool, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	private func playSoundWith(fileName filename: String, extension ext: String, isAlert: Bool, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		if !self.isOn { return }
 		
@@ -201,7 +201,7 @@ open class CSSystemSoundPlayer: NSObject
 		playSoundWith(file: filename, isAlert: isAlert, completionBlock: completion)
 	}
 
-	private func playSoundWith(file fileKey: String, isAlert: Bool, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	private func playSoundWith(file fileKey: String, isAlert: Bool, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		let soundID: SystemSoundID = soundIDFor(file: fileKey)
 		if soundID != 0
@@ -291,7 +291,7 @@ open class CSSystemSoundPlayer: NSObject
 	 *
 	 *  @warning If the system sound object cannot be created, this method does nothing.
 	 */
-	public func playSoundWith(pathToFile filePath: String, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	public func playSoundWith(pathToFile filePath: String, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		playSoundWith(pathToFile: filePath, isAlert: false, completionBlock: completion)
 	}
@@ -326,7 +326,7 @@ open class CSSystemSoundPlayer: NSObject
 	 *
 	 *  @warning This method performs the same functions as `playSoundWith: filePath: completion:`, with the excepion that, depending on the particular iOS device, this method may invoke vibration.
 	 */
-	public func playAlertSoundWith(pathToFile filePath: String, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	public func playAlertSoundWith(pathToFile filePath: String, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		playSoundWith(pathToFile: filePath, isAlert: true, completionBlock: completion)
 	}
@@ -363,7 +363,7 @@ open class CSSystemSoundPlayer: NSObject
 	 *
 	 *  @warning If the system sound object cannot be created, this method does nothing.
 	 */
-	public func playSoundWith(fileName filename: String, extension ext: String, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	public func playSoundWith(fileName filename: String, extension ext: String, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		playSoundWith(fileName: filename, extension: ext, isAlert: false, completionBlock: completion)
 	}
@@ -403,7 +403,7 @@ open class CSSystemSoundPlayer: NSObject
 	 *
 	 *  @warning This method performs the same functions as `playSoundWith: fileName: extension: completion:`, with the excepion that, depending on the particular iOS device, this method may invoke vibration.
 	 */
-	public func playAlertSoundWith(fileName filename: String, extension ext: String, completionBlock completion: CSSystemSoundPlayerCompletionBlock)
+	public func playAlertSoundWith(fileName filename: String, extension ext: String, completionBlock completion: @escaping CSSystemSoundPlayerCompletionBlock)
 	{
 		playSoundWith(fileName: filename, extension: ext, isAlert: true, completionBlock: completion)
 	}
@@ -528,7 +528,7 @@ open class CSSystemSoundPlayer: NSObject
 		return objectWrapper.value
 	}
 	
-	private func addCompletionBlock(_ block: CSSystemSoundPlayerCompletionBlock, toSoundID soundID: SystemSoundID)
+	private func addCompletionBlock(_ block: @escaping CSSystemSoundPlayerCompletionBlock, toSoundID soundID: SystemSoundID)
 	{
 		let data: NSData = dataWithSoundID(soundID)
 		completionBlocks.setObject(ObjectWrapper(block), forKey: data)

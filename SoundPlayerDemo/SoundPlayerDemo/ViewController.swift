@@ -49,22 +49,19 @@ class ViewController: UIViewController
 
 	@IBAction func playSystemSound(_ sender: AnyObject)
 	{
-		soundPlayer.playSoundWith(fileName: "Basso",
-		                              extension: kCSSystemSoundTypeAIF,
-		                              completionBlock:
+		soundPlayer.playSoundWith(fileName: "Basso", extension: kCSSystemSoundTypeAIF,
+			completionBlock:
 			{
 				NSLog("Sound finished playing. Executing completion block...")
 				
-				soundPlayer.playAlertSoundWith(fileName: "Funk",
-				                                   extension: kCSSystemSoundTypeAIFF)
+				self.soundPlayer.playAlertSoundWith(fileName: "Funk", extension: kCSSystemSoundTypeAIFF)
 			}
 		)
 	}
 
 	@IBAction func playAlertSound(_ sender: AnyObject)
 	{
-		soundPlayer.playAlertSoundWith(fileName: "Funk",
-		                                   extension: kCSSystemSoundTypeAIFF)
+		soundPlayer.playAlertSoundWith(fileName: "Funk", extension: kCSSystemSoundTypeAIFF)
 	}
 	
 	@IBAction func playVibration(_ sender: AnyObject)
@@ -76,9 +73,8 @@ class ViewController: UIViewController
 	{
 		NSLog("Playing long sound...")
 		
-		soundPlayer.playSoundWith(fileName: "BalladPiano",
-		                              extension: kCSSystemSoundTypeCAF,
-		                              completionBlock:
+		soundPlayer.playSoundWith(fileName: "BalladPiano", extension: kCSSystemSoundTypeCAF,
+			completionBlock:
 			{
 				NSLog("Long sound complete!");
 			}
@@ -95,4 +91,3 @@ class ViewController: UIViewController
 		soundPlayer.toggleSoundPlayerOn(sender.isOn)
 	}
 }
-
