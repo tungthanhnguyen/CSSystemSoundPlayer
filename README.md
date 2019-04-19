@@ -3,5 +3,5 @@ Swift version of JSQSystemSoundPlayer
 
 <center><img src="https://raw.githubusercontent.com/tungthanhnguyen/CSSystemSoundPlayer/master/Screenshoots/iPhoneX.png" height=600 /></center>
 
-* ✓ swift 4.2
+* ✓ swift 5
 * ✓ iOS 9.0 – 12.0
